@@ -28,6 +28,7 @@ src/
 #XLSX Reports
 *.xlsx
 data/
+test_data/
 
 # Excluded sites list
 tests/.excluded_sites

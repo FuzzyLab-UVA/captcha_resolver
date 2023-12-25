@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 import time
 import os
 
-
 pasta_screenshots = './data'
 
 driver = webdriver.Chrome()
