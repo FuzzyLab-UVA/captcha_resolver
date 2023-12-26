@@ -35,4 +35,4 @@ Na próxima etapa foi realizado a próxima etapa do ETL que foi pegar as imagens
 
 ### Conclusão do dia
 
-Sendo o primeiro dia de testes, conseguimos já criar a lógica por trás do ETL do Deep Learning, mas os resultados por enquanto estão insatisfatórios.
+Sendo o primeiro dia de testes, conseguimos já criar a lógica por trás do ETL do Deep Learning, mas os resultados por enquanto estão insatisfatórios, pois perdemos 60% dos dados extraídos.
