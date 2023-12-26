@@ -61,3 +61,9 @@ Foi percebido também que após o corte ele não tem percebido as letras do cant
 - Depois do corte
 
 ![Depois do corte](./images/captcha0_cutted.png)
+
+Após algumas modificações conseguimos fazer a IA reconhecer a letra mais a esquerda e identificar todas as letras em 90% das imagens, mas ele tem reconhecido outros lixos também, mas iremos separar o lixo para a IA.
+
+![Novo corte](./images/captcha0_cutted_perfect.png)
+
+

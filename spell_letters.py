@@ -5,6 +5,9 @@ def adjust_kernel_size(image_dim):
     size = max(1, int(min(image_dim) / 100)) 
     return (size, size)
 
+def is_near_edge(x, y, w, h, img_width, img_height, edge_margin):
+    return (x < edge_margin or x+w > img_width - edge_margin)
+
 current_dir = os.getcwd()
 print('Diretório de trabalho atual:', current_dir)
 
@@ -34,13 +37,16 @@ else:
         img_morph = cv2.morphologyEx(img_thresh, cv2.MORPH_CLOSE, kernel)
         
         contours, _ = cv2.findContours(img_morph, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        
+        img_height, img_width = img_morph.shape[:2]
+        edge_margin = 10 
 
         letter_region = []
 
         for contour in contours:
             (x, y, w, h) = cv2.boundingRect(contour)
             area = cv2.contourArea(contour)
-            if area > 80:
+            if area > 100 or is_near_edge(x, y, w, h, img_width, img_height, edge_margin):
                 letter_region.append((x, y, w, h))
 
         print(f"Número de regiões encontradas: {len(letter_region)}")
@@ -52,15 +58,14 @@ else:
         final_image = cv2.merge([img_morph] * 3)
 
         for i, rectangle in enumerate(sorted(letter_region, key=lambda x: x[0])):
-            if i != 0:
-                print(f"Retângulo: {rectangle}")
-                print(f"Índice: {i}")
-                x, y, w, h = rectangle
-                img_letter = img_morph[y:y+h+2, x:x+w+2]
-                archive_name = os.path.basename(image).replace('.png', f'_letra{i}.png')
-                letter_image_path = os.path.join('./letters', archive_name)
-                cv2.imwrite(letter_image_path, img_letter)
-                cv2.rectangle(final_image, (x-2, y-2), (x+w+2, y+h+2), (0, 255, 0), 1)
+            print(f"Retângulo: {rectangle}")
+            print(f"Índice: {i}")
+            x, y, w, h = rectangle
+            img_letter = img_morph[y:y+h+2, x:x+w+2]
+            archive_name = os.path.basename(image).replace('.png', f'_letra{i}.png')
+            letter_image_path = os.path.join('./letters', archive_name)
+            cv2.imwrite(letter_image_path, img_letter)
+            cv2.rectangle(final_image, (x-2, y-2), (x+w+2, y+h+2), (0, 255, 0), 1)
 
         archive_name = os.path.basename(image)
         identify_image_path = os.path.join('./identify', archive_name)
