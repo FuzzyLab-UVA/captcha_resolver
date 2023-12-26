@@ -25,11 +25,13 @@ src/
 # Comma-Separated Values (CSV) Reports
 *.csv
 
-#XLSX Reports
+#Data
 *.xlsx
 data/
 test_data/
 transformed_data/
+letters/
+identify/
 
 # Excluded sites list
 tests/.excluded_sites
