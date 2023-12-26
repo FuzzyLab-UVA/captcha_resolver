@@ -29,6 +29,7 @@ src/
 *.xlsx
 data/
 test_data/
+transformed_data/
 
 # Excluded sites list
 tests/.excluded_sites
