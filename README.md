@@ -44,6 +44,8 @@ No começo do segundo dia tentamos mudar as configurações do arquivo `etl_capt
 
 Assim pro treinamento teremos 2000 letras em média, dando 32 em média para cada algoritmo
 
-Após algumas modificações no arquivo `etl_captcha.py` como adição de **Threshold Adaptativo**, **Operações Morfológicas**, **Pós-Processamento dos Contornos** e **Ajustes Dinâmico** a precisão aumentou em muito para 26 letras, porém foi percebido que ao redor da imagem tem uma linha branca nas bordas que tem atrapalhado, retirando ela podemos aumentar a área para a identificação de mais letras.
+Após algumas modificações no arquivo `spell_letters.py` como adição de **Threshold Adaptativo**, **Operações Morfológicas**, **Pós-Processamento dos Contornos** e **Ajustes Dinâmico** a precisão aumentou em muito para 26 letras, porém foi percebido que ao redor da imagem tem uma linha branca nas bordas que tem atrapalhado, retirando ela podemos aumentar a área para a identificação de mais letras.
 
 ![Linha branca](./images/captcha3_letra2.png)
+
+Com a modificação no `etl_captcha.py` para cortar a borda agora vamos testar novamente no `spell_letters.py` para ver se a precisão vai aumentar

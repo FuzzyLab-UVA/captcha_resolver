@@ -1,7 +1,6 @@
 import cv2
 
 def remove_border(img, border_size):
-    # Corta a borda de todos os lados da imagem
     return img[border_size:-border_size, border_size:-border_size]
 
 def etl_images(origin:str, destination:str):
