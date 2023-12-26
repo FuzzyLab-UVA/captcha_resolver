@@ -11,7 +11,7 @@ def is_near_edge(x, y, w, h, img_width, img_height, edge_margin):
 current_dir = os.getcwd()
 print('Diretório de trabalho atual:', current_dir)
 
-dir_path = os.path.join(current_dir, 'test_data', 'results_tests')
+dir_path = os.path.join(current_dir, 'transformed_data')
 
 if not os.path.exists(dir_path):
     print(f"O diretório não foi encontrado: {dir_path}")

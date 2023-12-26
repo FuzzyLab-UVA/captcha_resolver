@@ -66,4 +66,10 @@ Após algumas modificações conseguimos fazer a IA reconhecer a letra mais a es
 
 ![Novo corte](./images/captcha0_cutted_perfect.png)
 
+Agora temos 46 letras para treinar a IA o que é equivalente a 92% da base de dados
+
+### Treinamento
+
+Foi criado um diretorio chamado `base_letters` onde tem um script chamado `create_folders.py` que criou todos diretorios para o treinamento, esse arquivo serve para criar os 61 diretorios da nossa IA.
+
 

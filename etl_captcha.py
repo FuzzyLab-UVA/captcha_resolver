@@ -1,12 +1,15 @@
 import cv2
 
+DATA_SIZE = 1000
+
+
 def remove_border(img, border_size):
     return img[border_size:-border_size, border_size:-border_size]
 
 def etl_images(origin:str, destination:str):
     methods = [cv2.THRESH_BINARY] 
 
-    for i in range(10):
+    for i in range(DATA_SIZE):
         image = cv2.imread(f'{origin}/captcha_screenshot_{i+1}.png')
         print(origin + f'{origin}/captcha_screenshot_{i+1}.png')
 
@@ -20,4 +23,4 @@ def etl_images(origin:str, destination:str):
 
 
 
-etl_images('./test_data', './test_data/results_tests')
+etl_images('./data', './transformed_data')
