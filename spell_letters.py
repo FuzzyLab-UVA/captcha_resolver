@@ -40,12 +40,12 @@ else:
         for contour in contours:
             (x, y, w, h) = cv2.boundingRect(contour)
             area = cv2.contourArea(contour)
-            if area > 115:
+            if area > 80:
                 letter_region.append((x, y, w, h))
 
         print(f"Número de regiões encontradas: {len(letter_region)}")
 
-        if len(letter_region) > 5: 
+        if len(letter_region) > 6: 
             print(f"Número incorreto de regiões encontradas: {len(letter_region)}")
             continue
 

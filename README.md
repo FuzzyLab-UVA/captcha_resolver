@@ -48,4 +48,16 @@ Após algumas modificações no arquivo `spell_letters.py` como adição de **Th
 
 ![Linha branca](./images/captcha3_letra2.png)
 
-Com a modificação no `etl_captcha.py` para cortar a borda agora vamos testar novamente no `spell_letters.py` para ver se a precisão vai aumentar
+Com a modificação no `etl_captcha.py` para cortar a borda agora vamos testar novamente no `spell_letters.py` para ver se a precisão vai aumentar.
+
+Após realizar tal ato, todas imagens tiveram as suas letras reconhecidas, mas como a área está muito grande algumas letras foram identificadas como `outliers`, então vamos diminuir a mesma para tentar fazer elas serem reconhecidas.
+
+Foi percebido também que após o corte ele não tem percebido as letras do canto da imagem:
+
+- Antes do corte
+
+![Antes do corte](./images/captcha0_contours.png)
+
+- Depois do corte
+
+![Depois do corte](./images/captcha0_cutted.png)
