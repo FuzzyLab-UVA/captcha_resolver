@@ -30,8 +30,6 @@ src/
 data/
 test_data/
 transformed_data/
-letters/
-identify/
 
 # Excluded sites list
 tests/.excluded_sites

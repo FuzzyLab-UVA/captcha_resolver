@@ -1,6 +1,10 @@
 import cv2
 import os
 
+def adjust_kernel_size(image_dim):
+    size = max(1, int(min(image_dim) / 100)) 
+    return (size, size)
+
 current_dir = os.getcwd()
 print('Diretório de trabalho atual:', current_dir)
 
@@ -22,36 +26,41 @@ else:
         img = cv2.imread(image)
         img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         
-        _, img_thresh = cv2.threshold(img_gray, 127, 255, cv2.THRESH_BINARY_INV)
+        blur = cv2.GaussianBlur(img_gray, (5, 5), 0)
+        img_thresh = cv2.adaptiveThreshold(blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
         
+        kernel_size = adjust_kernel_size(img.shape[:2])
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, kernel_size)
+        img_morph = cv2.morphologyEx(img_thresh, cv2.MORPH_CLOSE, kernel)
         
-        contours, _ = cv2.findContours(img_thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        contours, _ = cv2.findContours(img_morph, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         letter_region = []
 
         for contour in contours:
             (x, y, w, h) = cv2.boundingRect(contour)
             area = cv2.contourArea(contour)
-            if area > 115:
+            if area > 165:
                 letter_region.append((x, y, w, h))
 
         print(f"Número de regiões encontradas: {len(letter_region)}")
 
-        if len(letter_region) != 5: 
+        if len(letter_region) > 5: 
             print(f"Número incorreto de regiões encontradas: {len(letter_region)}")
             continue
 
-        final_image = cv2.merge([img_thresh] * 3)
+        final_image = cv2.merge([img_morph] * 3)
 
         for i, rectangle in enumerate(sorted(letter_region, key=lambda x: x[0])):
-            print(f"Retângulo: {rectangle}")
-            print(f"Índice: {i}")
-            x, y, w, h = rectangle
-            img_letter = img_thresh[y:y+h+2, x:x+w+2]
-            archive_name = os.path.basename(image).replace('.png', f'_letra{i}.png')
-            letter_image_path = os.path.join('./letters', archive_name)
-            cv2.imwrite(letter_image_path, img_letter)
-            cv2.rectangle(final_image, (x-2, y-2), (x+w+2, y+h+2), (0, 255, 0), 1)
+            if i != 0:
+                print(f"Retângulo: {rectangle}")
+                print(f"Índice: {i}")
+                x, y, w, h = rectangle
+                img_letter = img_morph[y:y+h+2, x:x+w+2]
+                archive_name = os.path.basename(image).replace('.png', f'_letra{i}.png')
+                letter_image_path = os.path.join('./letters', archive_name)
+                cv2.imwrite(letter_image_path, img_letter)
+                cv2.rectangle(final_image, (x-2, y-2), (x+w+2, y+h+2), (0, 255, 0), 1)
 
         archive_name = os.path.basename(image)
         identify_image_path = os.path.join('./identify', archive_name)

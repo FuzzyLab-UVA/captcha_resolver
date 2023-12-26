@@ -1,22 +1,24 @@
 import cv2
 
-def etl_images(origin:str,destination:str):
-    methods = [
-        cv2.THRESH_BINARY
-    #    cv2.THRESH_BINARY_INV,
-    #    cv2.THRESH_TRUNC,
-    #    cv2.THRESH_TOZERO,
-    #    cv2.THRESH_TOZERO_INV
-    ]
+def remove_border(img, border_size):
+    # Corta a borda de todos os lados da imagem
+    return img[border_size:-border_size, border_size:-border_size]
 
-    for i in range(1000):
+def etl_images(origin:str, destination:str):
+    methods = [cv2.THRESH_BINARY] 
 
-        image = cv2.imread(origin + f'/captcha_screenshot_{i+1}.png')
+    for i in range(10):
+        image = cv2.imread(f'{origin}/captcha_screenshot_{i+1}.png')
+        print(origin + f'{origin}/captcha_screenshot_{i+1}.png')
 
-        gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        image_without_border = remove_border(image, border_size=10) 
+
+        gray_image = cv2.cvtColor(image_without_border, cv2.COLOR_BGR2GRAY)
 
         for method in methods:
             _, image_resolved = cv2.threshold(gray_image, 127, 255, method or cv2.THRESH_OTSU)
+            cv2.imwrite(f'{destination}/captcha{i}.png', image_resolved)
 
-            cv2.imwrite(destination + f'/captcha{i}.png', image_resolved)
 
+
+etl_images('./test_data', './test_data/results_tests')

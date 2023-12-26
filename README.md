@@ -36,3 +36,14 @@ Na próxima etapa foi realizado a próxima etapa do ETL que foi pegar as imagens
 ### Conclusão do dia
 
 Sendo o primeiro dia de testes, conseguimos já criar a lógica por trás do ETL do Deep Learning, mas os resultados por enquanto estão insatisfatórios, pois perdemos 60% dos dados extraídos.
+
+
+## Dia 02
+
+No começo do segundo dia tentamos mudar as configurações do arquivo `etl_captcha.py` para quando a gente tentasse reduzir o ruído ele não apagasse as letras de algumas imagens, mas infelizmente não foi possivel, pois alguns ruídos estão muito próximos da coloração das letras.
+
+Assim pro treinamento teremos 2000 letras em média, dando 32 em média para cada algoritmo
+
+Após algumas modificações no arquivo `etl_captcha.py` como adição de **Threshold Adaptativo**, **Operações Morfológicas**, **Pós-Processamento dos Contornos** e **Ajustes Dinâmico** a precisão aumentou em muito para 26 letras, porém foi percebido que ao redor da imagem tem uma linha branca nas bordas que tem atrapalhado, retirando ela podemos aumentar a área para a identificação de mais letras.
+
+![Linha branca](./images/captcha3_letra2.png)
