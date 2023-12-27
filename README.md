@@ -72,4 +72,20 @@ Agora temos 46 letras para treinar a IA o que é equivalente a 92% da base de da
 
 Foi criado um diretorio chamado `base_letters` onde tem um script chamado `create_folders.py` que criou todos diretorios para o treinamento, esse arquivo serve para criar os 61 diretorios da nossa IA.
 
+O treino teve mais de 7 horas de duração e mesmo assim ainda não terminamos de catalogar todos os dados da base de dados.
+
+
+## Dia 03
+
+Mesmo com muitos dados não catalogados na base de dados, podemos começar a ver como a IA vai agir.
+
+Criei o arquivo `train_model.py` e segui o artigo do **Adam Geitgey**, vou explicar melhor tudo que foi feito, quando for escrever o artigo, mas mesmo treinando com menos da metade dos dados a precisão foi de 50%, o que é maravilhoso, pois o N amostral estava em 820 dados, ou seja, uma média de 13 dados por letra, o foco é conseguir 50 dados por letra.
+
+![Iniciando os treinos](./images/starting_training.png)
+
+
+# Referencias
+
+https://medium.com/@ageitgey/how-to-break-a-captcha-system-in-15-minutes-with-machine-learning-dbebb035a710
+
 
