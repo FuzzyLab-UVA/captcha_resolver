@@ -83,6 +83,18 @@ Criei o arquivo `train_model.py` e segui o artigo do **Adam Geitgey**, vou expli
 
 ![Iniciando os treinos](./images/starting_training.png)
 
+## Dia 04
+
+Iniciando o dia 4 com os treinos e já obtivemos melhoras de 5% com o treino do dia anterior:
+
+![Treino do dia 04](./images/day_4_training.png)
+
+O objetivo é melhor o treino para que amanhã ele chegue em 62% ao menos.
+
+Melhor também a varredura as imagens tentando tirar mais outliers delas.
+
+
+
 
 # Referencias
 

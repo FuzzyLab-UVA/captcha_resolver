@@ -17,18 +17,33 @@ labels = []
 dir_base_letters = 'base_letters'
 images = paths.list_images(dir_base_letters)
 
-for image in images:
-    label = image.split(os.path.sep)[-2]
+for image_path in images:
+    label = image_path.split(os.path.sep)[-2]
     if label[0] == '^':
         label = label[1:].upper()
     elif label == '__trash':
         label = 'trash'
-    image = cv2.imread(image)
+
+    image = cv2.imread(image_path)
+    if image is None or image.size == 0:
+        print(f"Imagem inválida ou corrompida: {image_path}. Pulando.")
+        continue  # Pula para a próxima imagem se esta for inválida
+
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    image = resize_to_fit(image, 20, 20)
+
+    try:
+        image = resize_to_fit(image, 20, 20)
+    except cv2.error as e:
+        print(f"Erro ao redimensionar a imagem {image_path}: {e}. Pulando.")
+        continue  # Pula para a próxima imagem se houver um erro ao redimensionar
+
     image = np.expand_dims(image, axis=2)
+
     data.append(image)
     labels.append(label)
+
+if len(data) != len(labels):
+    raise ValueError("O número de imagens não corresponde ao número de rótulos!")
 
 data = np.array(data, dtype='float') / 255
 labels = np.array(labels)
@@ -39,7 +54,7 @@ lb = LabelBinarizer().fit(Y_train)
 Y_train = lb.transform(Y_train)
 Y_test = lb.transform(Y_test)
 
-# Determine the number of unique labels
+# Determine o número de rótulos únicos
 num_classes = len(lb.classes_)
 
 with open('labels.dat', 'wb') as f:
