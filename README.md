@@ -94,6 +94,13 @@ O objetivo é melhor o treino para que amanhã ele chegue em 62% ao menos.
 Melhor também a varredura as imagens tentando tirar mais outliers delas.
 
 
+## Dia 05
+
+Aparentemente o máximo que conseguimos chegar foi realmente 58% de precisão total, tentei outras técnicas de deixar a imagem mais limpa no ETL, pois isso facilitaria na identificação das letras, porém existem 3 tipos diferentes de ruídos nas imagens e o ETL funciona de maneira distinta para todos eles.
+
+Pelos meus cálculos se cada letra tem 58% de chance de ser acertada e são 5 letras em um captcha isso da 6% de chance de acerto e a probabilidade de vir um captcha perfeito são de 40% a chance de acertar o CAPTCHA de primeira é de 2%.
+
+A cada minuto conseguimos enviar 12 imagens para o Jones, sendo assim em média 5 minutos para quebrar um CAPTCHA na teoria.
 
 
 # Referencias

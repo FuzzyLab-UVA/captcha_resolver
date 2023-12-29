@@ -8,7 +8,7 @@ def remove_border(img, border_size):
 
 def etl_images(origin:str, destination:str):
     methods = methods = [
-    cv2.THRESH_BINARY,
+#    cv2.THRESH_BINARY,
 #    cv2.THRESH_BINARY_INV,
 #    cv2.THRESH_TRUNC,
 #    cv2.THRESH_TOZERO,
