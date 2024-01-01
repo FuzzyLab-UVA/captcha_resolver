@@ -26,6 +26,8 @@ Entretando temos outro desafio que não foi mencionado até agora que são os CA
 O Breached Forums na verdade é originario do site Raid Foruns, criado pelo amigo do YouTuber CELAEON que faziam as Raids na Twitch com o intuito de *trollar* os alvos, para organizar essas Raids o Português Diogo Santos Coelho conhecido na internet como “Onipotente” e “Kevin Maradona”, após a fama do site, "Onipotente" decidiu ampliar o seu negócio para dados vazados e aos 21 anos foi preso pelo FBI.
 Porém se engana que o fórum acabou após a prisão de "Onipotente", pois ele foi recriado pelo moderador "Baphomet" utilizando o código original, somente mudando o nome e o dóminio para Breached Forums.
 
+## Captcha Resolver
+
 ## Referencias
 
 https://medium.com/@ageitgey/how-to-break-a-captcha-system-in-15-minutes-with-machine-learning-dbebb035a710
