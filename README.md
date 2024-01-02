@@ -28,6 +28,8 @@ Porém se engana que o fórum acabou após a prisão de "Onipotente", pois ele f
 
 ## Captcha Resolver
 
+O Captcha Resolver é para resolver os problemas de captchas do Breached Forums
+
 ## Referencias
 
 https://medium.com/@ageitgey/how-to-break-a-captcha-system-in-15-minutes-with-machine-learning-dbebb035a710
