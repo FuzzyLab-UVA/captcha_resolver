@@ -1,5 +1,7 @@
-import cv2
 import os
+
+import cv2
+
 
 def adjust_kernel_size(image_dim):
     size = max(1, int(min(image_dim) / 100)) 
