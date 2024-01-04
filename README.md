@@ -28,7 +28,7 @@ Porém se engana que o fórum acabou após a prisão de "Onipotente", pois ele f
 
 ## Captcha Resolver
 
-O Captcha Resolver é para resolver os problemas de captchas do Breached Forums
+O Captcha Resolver é para resolver os problemas de captchas do Breached Forums, mas como ele funciona?
 
 ## Referencias
 
