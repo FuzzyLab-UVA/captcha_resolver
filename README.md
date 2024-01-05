@@ -1,7 +1,5 @@
 # Captcha Resolver
 
-Esse algoritmo está sendo baseado no artigo escrito por **Adam Geitgey** que usou o livro *Deep Learning for Computer Vision with Python* escrito por **Adrian Rosebrock** para quebrar em 2 minutos o CAPTCHA mais famoso do mundo a aplicação **Really Simple CAPTCHA** do *Wordpress*.
-
 ## Introdução do problema
 
 No dia 19 de Dezembro de 2023, o twitter da atual primeira dama *Rosângela da Silva* foi hackeado, o hacker em questão disse que conseguiu os seus dados apartir de banco de dados vazados pela internet e que a senha igualava a dos bancos vazados.
@@ -28,7 +26,7 @@ Porém se engana que o fórum acabou após a prisão de "Onipotente", pois ele f
 
 ## Captcha Resolver
 
-O Captcha Resolver é para resolver os problemas de captchas do Breached Forums, mas como ele funciona?
+O Captcha Resolver é para resolver os problemas de captchas do Breached Forums esse algoritmo está sendo baseado no artigo escrito por **Adam Geitgey** que usou o livro *Deep Learning for Computer Vision with Python* escrito por **Adrian Rosebrock** para quebrar em 2 minutos o CAPTCHA mais famoso do mundo a aplicação **Really Simple CAPTCHA** do *Wordpress*.
 
 ## Referencias
 
