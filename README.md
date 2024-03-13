@@ -1,5 +1,14 @@
 # Captcha Resolver
 
+## Como executar
+
+Cada programa faz alguma coisa dentro da pipeline da IA, execute os arquivos nessa ordem.
+
+- data_mine.py => Ele extrai os captchas do BreachForums
+- etl_captcha.py => Personaliza as imagens para se adequarem ao modelo
+- spell_letters.py -> Separa as letras das imagens filtradass
+- train_model.py => Treina o modelo
+
 ## Introdução do problema
 
 No dia 19 de Dezembro de 2023, o twitter da atual primeira dama *Rosângela da Silva* foi hackeado, o hacker em questão disse que conseguiu os seus dados apartir de banco de dados vazados pela internet e que a senha igualava a dos bancos vazados.
